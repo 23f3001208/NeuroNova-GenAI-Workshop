@@ -1,0 +1,68 @@
+"use client";
+
+import { Button } from "@/components/ui/button";
+import { Slider } from "@/components/ui/slider";
+import { createCheckoutSession } from "@/lib/stripe";
+import { api } from "@/trpc/react";
+import { Info } from "lucide-react";
+import React from "react";
+
+const BillingPage = () => {
+  const { data: user } = api.project.getMyCredits.useQuery();
+  const [creditsToBuy, setCreditsToBuy] = React.useState<number[]>([500]);
+  const creditsToBuyAmount = creditsToBuy[0]!;
+  const price = (creditsToBuyAmount / 5).toFixed(2);
+
+  return (
+    <div>
+      <h1 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
+        Billing
+      </h1>
+
+      <div className="h-2" />
+
+      <p className="text-sm text-gray-500 dark:text-gray-400">
+        You currently have {user?.credits} credits.
+      </p>
+
+      <div className="h-2" />
+
+      <div className="rounded-md border border-blue-200 bg-blue-50 px-4 py-2 text-blue-700 dark:border-blue-500/30 dark:bg-blue-950/30 dark:text-blue-300">
+        <div className="flex flex-col items-center gap-2 md:flex-row">
+          <Info className="size-4" />
+          <p className="text-sm">
+            Each credit allows you to index 1 file in a repository.
+          </p>
+        </div>
+        <p className="text-sm">
+          E.g. If your project has 100 files, you will need 100 credits to index
+          it.
+        </p>
+      </div>
+
+      <div className="h-4" />
+
+      <Slider
+        defaultValue={[500]}
+        max={5000}
+        min={250}
+        step={50}
+        onValueChange={(value) => setCreditsToBuy(value)}
+        value={creditsToBuy}
+      />
+
+      <div className="h-4" />
+
+      <Button
+        className="hover:cursor-pointer"
+        onClick={() => {
+          createCheckoutSession(creditsToBuyAmount);
+        }}
+      >
+        Buy {creditsToBuyAmount} credits for Rs. {price}
+      </Button>
+    </div>
+  );
+};
+
+export default BillingPage;
