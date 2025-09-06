@@ -1,8 +1,8 @@
 # Collab-Sphere
 
-Collab-Sphere is a collaborative project management and code analysis tool designed for HackCelerate 2025 Hackathon. It integrates GitHub repositories with AI-powered features such as meeting processing, Q&A, and source code embeddings to enhance team collaboration and productivity.
+Collab-Sphere is a collaborative project management and code analysis tool designed for Gen AI Project 2025. It integrates GitHub repositories with AI-powered features such as meeting processing, Q&A, and source code embeddings to enhance team collaboration and productivity.
 
-**Team Gazi-The Warrior**
+**Team NeuroNova**
 
 ## Features
 
@@ -43,8 +43,8 @@ Collab-Sphere is a collaborative project management and code analysis tool desig
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/Sadiya-125/HackCelerate-19.git
-cd HackCelerate-19
+git clone https://github.com/23f3001208/NeuroNova-GenAI-Workshop.git
+cd NeuroNova-GenAI-Workshop
 ```
 
 2. Install dependencies:
@@ -106,10 +106,5 @@ https://collab-sphere-github.vercel.app
 - Q&A: save and retrieve questions and answers.
 - User credits: check and update credit balances.
 - Team management: list project team members.
-
-## Contact
-
-For questions or support, please contact the project owner at portfolio:  
-https://sadiya-maheen-siddiqui.vercel.app/
 
 Thank you for using Collab-Sphere!
